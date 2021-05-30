@@ -13,6 +13,7 @@
 @import url('../blocks/card/__text/_alt/card__text_alt.css');
 @import url('../blocks/card/__title/card__title.css');
 @import url('../blocks/card/__nav/card__nav.css');
+@import url('../blocks/card/__link/card__link.css');
 @import url('../blocks/card/__button/card__button.css');
 @import url('../blocks/card/__descritption/card__description.css');
 @import url('../blocks/footer/footer.css');

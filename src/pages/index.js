@@ -28,46 +28,48 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+
 //Навешиваем слушателей на кнопки навигации
-firstButton.addEventListener('click', (evt) => {
-    api.getDataCardNum(evt.target.value)
-    .then((data) => {
-        createCard(data);
-    })
-    .catch((err) => console.log(err))
-})
+// firstButton.addEventListener('click', (evt) => {
+//     api.getDataCardNum(evt.target.value)
+//     .then((data) => {
+//         createCard(data);
+//     })
+//     .catch((err) => console.log(err))
+// })
 
-lastButton.addEventListener('click', () => {
-    api.getDataCardNum(lastCard)
-    .then((data) => {
-        createCard(data);
-    })
-    .catch((err) => console.log(err))
-})
+// lastButton.addEventListener('click', () => {
+//     api.getDataCardNum(lastCard)
+//     .then((data) => {
+//         createCard(data);
+//     })
+//     .catch((err) => console.log(err))
+// })
 
-randButton.addEventListener('click', (evt) => {
-    api.getDataCardNum(evt.target.value)
-    .then((data) => {
-        createCard(data);
-    })
-    .catch((err) => console.log(err))
-})
+// randButton.addEventListener('click', (evt) => {
+//     api.getDataCardNum(evt.target.value)
+//     .then((data) => {
+//         createCard(data);
+//     })
+//     .catch((err) => console.log(err))
+// })
 
-nextButton.addEventListener('click', (evt) => {
-    api.getDataCardNum(evt.target.value)
-    .then((data) => {
-        createCard(data);
-    })
-    .catch((err) => console.log(err))
-})
+// nextButton.addEventListener('click', (evt) => {
+//     api.getDataCardNum(evt.target.value)
+//     .then((data) => {
+//         createCard(data);
+//     })
+//     .catch((err) => console.log(err))
+// })
 
-prevButton.addEventListener('click', (evt) => {
-    api.getDataCardNum(evt.target.value)
-    .then((data) => {
-        createCard(data);
-    })
-    .catch((err) => console.log(err))
-})
+// prevButton.addEventListener('click', (evt) => {
+//     api.getDataCardNum(evt.target.value)
+//     .then((data) => {
+//         createCard(data);
+//     })
+//     .catch((err) => console.log(err))
+// })
 
 // Функция создания карточки
 function createCard(data) {
@@ -85,5 +87,6 @@ function createCard(data) {
         prevCard,
         nextCard,
         randCard,
+        lastCard,
     }).generateCard();
 }
