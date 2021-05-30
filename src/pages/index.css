@@ -2,8 +2,11 @@
 @import url('../blocks/page/page.css');
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__title/header__title.css');
+@import url('../blocks/header/__subtitle/header__subtitle.css');
 @import url('../blocks/main/main.css');
 @import url('../blocks/card/card.css');
+@import url('../blocks/card/__text/card__text.css');
+@import url('../blocks/card/__text/_year/card__text_yaer.css');
 @import url('../blocks/card/__title/card__title.css');
 @import url('../blocks/card/__nav/card__nav.css');
 @import url('../blocks/card/__button/card__button.css');

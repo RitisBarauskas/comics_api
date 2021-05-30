@@ -1,3 +1,4 @@
 .card__nav {
-    margin: 0;
+    margin: 20px auto 20px;
+    width: fit-content;
 }
