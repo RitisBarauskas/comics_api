@@ -1,0 +1,19 @@
+{
+  "name": "comics",
+  "version": "1.0.0",
+  "description": "API xkcd.com comics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RitisBarauskas/comics_api.git"
+  },
+  "author": "Ritis Barauskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RitisBarauskas/comics_api/issues"
+  },
+  "homepage": "https://github.com/RitisBarauskas/comics_api#readme"
+}
