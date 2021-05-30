@@ -80,8 +80,7 @@ function createCard(data) {
         nextCard = lastCard;
     }
     const randCard = getRandomInt(1, lastCard);
-    console.log(randCard);
-    const comics = new Card({
+    new Card({
         data,
         prevCard,
         nextCard,

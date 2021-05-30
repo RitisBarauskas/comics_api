@@ -21,7 +21,6 @@ export default class Card {
     }
 
     generateCard() {
-        console.log(this._num);
         this._cardTitle.textContent = this._title;
         this._cardImage.src = this._img;
         this._cardImage.alt = this._title;

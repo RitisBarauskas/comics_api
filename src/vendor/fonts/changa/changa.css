@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Changa';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("changa-v11-latin-regular.woff") format("woff2"),
+         url("changa-v11-latin-regular.woff2") format("woff");
+  }
+  
