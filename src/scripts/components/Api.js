@@ -21,7 +21,7 @@ export default class Api {
     }
 
     getDataCardNum(num) {
-        return fetch(this._cors+this._url+num+`info.0.json`, {
+        return fetch(this._cors+this._url+num+`/info.0.json`, {
             method: 'GET',
             headers: this._headers
         })
