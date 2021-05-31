@@ -3,6 +3,8 @@ import Api from '../scripts/components/Api';
 import Card from '../scripts/components/Card';
 import {firstButton, prevButton, randButton, nextButton, lastButton} from '../scripts/utils/constants';
 
+
+
 // Задаем данные для подключение к АПИ, включая прокси для обхода CORS
 const api = new Api({
     url: 'http://xkcd.com/',
@@ -16,60 +18,42 @@ const api = new Api({
 let lastCard = 1;
 
 // Получаем данные о текущей карточки и переопределяем переменную со значением последней карточки
-api.getDataCard()
+function initialCard() {
+    api.getDataCard()
     .then((data) => {
         lastCard = data.num;
         createCard(data);
     })
     .catch((err) => console.log(err))
+}
+
+const cardNumber = document.location.pathname
+console.log(cardNumber);
+if (cardNumber == '/') {
+    console.log(cardNumber);
+    initialCard();
+} else {
+    console.log(cardNumber.slice(1));
+    getCard()
+}
+
 
 // Генерация случайного числа в заданном промежутке
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+document.body.querySelectorAll('.card__link')
+        .forEach((link) => link.addEventListener('click', link_clickHandler));
 
+function link_clickHandler(evt) {
+    evt.preventDefault();
 
-//Навешиваем слушателей на кнопки навигации
-// firstButton.addEventListener('click', (evt) => {
-//     api.getDataCardNum(evt.target.value)
-//     .then((data) => {
-//         createCard(data);
-//     })
-//     .catch((err) => console.log(err))
-// })
+    const path = evt.target.href;
 
-// lastButton.addEventListener('click', () => {
-//     api.getDataCardNum(lastCard)
-//     .then((data) => {
-//         createCard(data);
-//     })
-//     .catch((err) => console.log(err))
-// })
+    window.history.pushState({route: path}, "title", path);
+}
 
-// randButton.addEventListener('click', (evt) => {
-//     api.getDataCardNum(evt.target.value)
-//     .then((data) => {
-//         createCard(data);
-//     })
-//     .catch((err) => console.log(err))
-// })
-
-// nextButton.addEventListener('click', (evt) => {
-//     api.getDataCardNum(evt.target.value)
-//     .then((data) => {
-//         createCard(data);
-//     })
-//     .catch((err) => console.log(err))
-// })
-
-// prevButton.addEventListener('click', (evt) => {
-//     api.getDataCardNum(evt.target.value)
-//     .then((data) => {
-//         createCard(data);
-//     })
-//     .catch((err) => console.log(err))
-// })
 
 // Функция создания карточки
 function createCard(data) {
