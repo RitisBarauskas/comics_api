@@ -29,20 +29,20 @@ export default class Card {
         this._cardImage.alt = this._title;
         this._cardAlt.textContent = this._alt;
         this._cardYear.textContent = this._day+'-'+this._month+'-'+this._year;
-        this._cardLinkPrev.href = this._prevCard;
-        this._cardLinkNext.href = this._nextCard;
-        this._cardLinkRand.href = this._randCard;
-        this._cardLinkLast.href = this._lastCard;
-        this._cardLinkFirst.href = 1;
-        // if (this._num == this._nextCard) {
-        //     this._cardButtonNext.setAttribute('disabled', true);
-        // } else {
-        //     this._cardButtonNext.removeAttribute('disabled', true);
-        // }
-        // if (this._num == this._prevCard) {
-        //     this._cardButtonPrev.setAttribute('disabled', true);
-        // } else {
-        //     this._cardButtonPrev.removeAttribute('disabled', true);
-        // }
+        this._cardLinkPrev.href = '#/'+this._prevCard;
+        this._cardLinkNext.href = '#/'+this._nextCard;
+        this._cardLinkRand.href = '#/'+this._randCard;
+        this._cardLinkLast.href = '#/'+this._lastCard;
+        this._cardLinkFirst.href = '#/'+1;
+        if (this._num == this._nextCard) {
+            this._cardLinkNext.classList.add('card__link_disable');
+        } else {
+            this._cardLinkNext.classList.remove('card__link_disable');
+        }
+        if (this._num == this._prevCard) {
+            this._cardLinkPrev.classList.add('card__link_disable');
+        } else {
+            this._cardLinkPrev.classList.remove('card__link_disable');
+        }
       }
 }

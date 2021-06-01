@@ -1,0 +1,5 @@
+.card__link_disable {
+    pointer-events: none;
+    cursor: default;
+    color: #999;
+}

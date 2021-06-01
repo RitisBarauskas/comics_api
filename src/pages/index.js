@@ -1,9 +1,7 @@
 import './index.css';
+import Router from '../scripts/utils/Router'
 import Api from '../scripts/components/Api';
 import Card from '../scripts/components/Card';
-import {firstButton, prevButton, randButton, nextButton, lastButton} from '../scripts/utils/constants';
-
-
 
 // Задаем данные для подключение к АПИ, включая прокси для обхода CORS
 const api = new Api({
@@ -17,25 +15,48 @@ const api = new Api({
 // Объявляем переменную со значением последней карточки
 let lastCard = 1;
 
-// Получаем данные о текущей карточки и переопределяем переменную со значением последней карточки
+// Функция получения последней карточки
 function initialCard() {
     api.getDataCard()
-    .then((data) => {
-        lastCard = data.num;
-        createCard(data);
-    })
-    .catch((err) => console.log(err))
+        .then((data) => {
+            lastCard = data.num;
+            createCard(data);
+        })
+        .catch((err) => console.log(err))
 }
 
-const cardNumber = document.location.pathname
-console.log(cardNumber);
-if (cardNumber == '/') {
-    console.log(cardNumber);
-    initialCard();
-} else {
-    console.log(cardNumber.slice(1));
-    getCard()
+//функция получения произвольной карточки. Если идет прямой переход, то определяется и последняя карточка
+function getCard(num) {
+    if (lastCard == 1) {
+        api.getDataCard()
+            .then((data) => {
+                lastCard = data.num;
+            })
+            .catch((err) => console.log(err))
+    }    
+    api.getDataCardNum(num)
+        .then((data) => {
+            createCard(data);
+        })
+        .catch((err) => console.log(err))    
 }
+
+//Получаем данные карточки при загрузке главной страницы
+const cardNumber = document.location.pathname;
+if (cardNumber == '/') {
+    initialCard();
+}
+
+//Определяем маршрутизатор
+const router = new Router({
+    mode: 'hash',
+    root: '/'
+  });
+  
+  router
+    .add(/(.*)/, (cardNumber) => {
+        getCard(cardNumber);
+    });
 
 
 // Генерация случайного числа в заданном промежутке
@@ -43,6 +64,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+//Слушаем ссылки сбрасываем текущее поведение при переходе по ним.
 document.body.querySelectorAll('.card__link')
         .forEach((link) => link.addEventListener('click', link_clickHandler));
 
