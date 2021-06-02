@@ -15,19 +15,9 @@ const api = new Api({
 // Объявляем переменную со значением последней карточки
 let lastCard = 1;
 
-// Функция получения последней карточки
-function initialCard() {
-    api.getDataCard()
-        .then((data) => {
-            lastCard = data.num;
-            createCard(data);
-        })
-        .catch((err) => console.log(err))
-}
-
 //функция получения произвольной карточки. Если идет прямой переход, то определяется и последняя карточка
 function getCard(num) {
-    if (lastCard == 1) {
+    if (lastCard === 1) {
         api.getDataCard()
             .then((data) => {
                 lastCard = data.num;
@@ -39,12 +29,6 @@ function getCard(num) {
             createCard(data);
         })
         .catch((err) => console.log(err))    
-}
-
-//Получаем данные карточки при загрузке главной страницы
-const cardNumber = document.location.pathname;
-if (cardNumber == '/') {
-    initialCard();
 }
 
 //Определяем маршрутизатор
